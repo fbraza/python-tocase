@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "recase"
+version = "0.1.0"
+description = ""
+authors = ["fbraza <fbraza@tutanota.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7.10"
+regex = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pynvim = "^0.4.3"
+flake8 = "^3.9.0"
+jupyter = "^1.0.0"
+pandas = "^1.2.3"
+numpy = "1.20.3"
+commitizen = "^2.16.0"
+pre-commit = "^2.11.1"
+jedi = "*"
+python-language-server = { version = "*", extras = ["all"]}
+
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.0.1"
+tag_format = "$version"
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
