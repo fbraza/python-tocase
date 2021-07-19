@@ -1,61 +1,83 @@
+from typing import List
 import regex
-from dataclasses import dataclass
 
 
-# /\p{Lu}{2,}(?=\p{Lu}\p{Ll}+[0-9]*|\b)|\p{Lu}?\p{Ll}+[0-9]*|\p{Lu}+|[0-9]+/
-
-
-@dataclass
 class toCase:
-    string: str
-    pattern: str = r"""
+    def __init__(
+        self,
+        string: str,
+        pattern: str = r"""
     /\p{Lu}{2,}(?=\p{Lu}\p{Ll}+[0-9]*|\b)|\p{Lu}?\p{Ll}+[0-9]*|\p{Lu}+|[0-9]+/
     """
-
-    def __post_init__(self):
-        self.words = regex.findall(self.pattern, self.string)
-        self.size = len(self.words)
-        self.separators: dict[str, str] = {
+    ) -> None:
+        if not isinstance(string, str):
+            raise TypeError(
+                """
+                Wrong type used. The toCase constructor accepts strings only
+                """
+                )
+        self.__string: str = string
+        self.__pattern: str = pattern
+        self.__separators: dict[str, str] = {
             "pascal": "",
             "camel": "",
             "snake": "_",
             "title": " ",
             "kebab": "-",
             "dot": ".",
-            "header": "-"
+            "header": "-",
+            "constant": "_"
         }
 
-    def __convert(self, kind: str = "pascal"):
-        sep: str = self.separators[kind]
-        if self.size == 0:
-            return self.string
-        elif kind == "pascal" or kind == "title" or kind == "header":
-            return sep.join([w.lower().capitalize() for w in self.words])
-        elif kind == "snake" or kind == "kebab" or "kind" == "dot":
-            return sep.join([w.lower() for w in self.words])
-        elif kind == "camel":
-            return sep.join([w.lower() if i == 0 else w.lower().capitalize() for i, w in enumerate(self.words)]) # noqa: 501
+    @property
+    def pattern(self) -> str:
+        return self.__pattern
 
-    def pascal(self):
+    @property
+    def string(self) -> str:
+        return self.__string
+
+    @property
+    def separators(self):
+        return self.__separators
+
+    def __convert(self, kind: str) -> str:
+        sep: str = self.separators[kind]
+        words: List[str] = regex.findall(self.pattern, self.string)
+        size: int = len(words)
+        converted: str = ""
+        if size == 0:
+            converted = self.string
+        elif kind == "pascal" or kind == "title" or kind == "header":
+            converted = sep.join([w.lower().capitalize() for w in words])
+        elif kind == "snake" or kind == "kebab" or kind == "dot":
+            converted = sep.join([w.lower() for w in words])
+        elif kind == "camel":
+            converted = sep.join([w.lower() if i == 0 else w.lower().capitalize() for i, w in enumerate(words)]) # noqa: 501
+        elif kind == "constant":
+            converted = sep.join([w.upper() for w in words])
+        return converted
+
+    def pascal(self) -> str:
         return self.__convert("pascal")
 
-    def camel(self):
+    def camel(self) -> str:
         return self.__convert("camel")
 
-    def snake(self):
+    def snake(self) -> str:
         return self.__convert("snake")
 
-    def kebab(self):
-        pass
+    def kebab(self) -> str:
+        return self.__convert("kebab")
 
-    def constant(self):
-        pass
+    def constant(self) -> str:
+        return self.__convert("constant")
 
-    def dot(self):
-        pass
+    def dot(self) -> str:
+        return self.__convert("point")
 
-    def title(self):
-        pass
+    def title(self) -> str:
+        return self.__convert("title")
 
-    def header(self):
-        pass
+    def header(self) -> str:
+        return self.__convert("header")
