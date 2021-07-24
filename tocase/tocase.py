@@ -74,7 +74,7 @@ class toCase:
         return self.__convert("constant")
 
     def dot(self) -> str:
-        return self.__convert("point")
+        return self.__convert("dot")
 
     def title(self) -> str:
         return self.__convert("title")
