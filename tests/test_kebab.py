@@ -15,6 +15,13 @@ def test_kebab_should_kebab_case_usual_strings():
     assert toCase("KEBABCase").kebab() == "kebabc-ase"
 
 
+def test_kebab_should_kebab_case_usual_string_in_other_languages():
+    # test the UTF-8 char for russian, french and greek. Feel free to test other languages
+    assert toCase("не волнуйтесь беспокойтесь") == "не-волнуйтесь-беспокойтесь"
+    assert toCase("épicurien ambiguë") == "épicurien-ambiguië"
+    assert toCase("Μου αρέσει το κοτόπουλο") == "μου-αρέσει-το-κοτόπουλο"
+
+
 def test_kebab_should_return_single_letter():
     assert toCase("K").kebab() == "k"
 

@@ -15,6 +15,13 @@ def test_snake_should_snake_case_usual_strings():
     assert toCase("SNAKECase").snake() == "snakec_ase"
 
 
+def test_pascal_should_pascal_case_usual_string_in_other_languages():
+    # test the UTF-8 char for russian, french and greek. Feel free to test other languages
+    assert toCase("не волнуйтесь беспокойтесь") == "'не_волнуйтесь_беспокойтесь'"
+    assert toCase("épicurien ambiguë") == "épicurien_ambiguië"
+    assert toCase("Μου αρέσει το κοτόπουλο") == "μου_αρέσει_το_κοτόπουλο"
+
+
 def test_snake_should_return_single_letter():
     assert toCase("s").snake() == "s"
 

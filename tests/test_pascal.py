@@ -15,6 +15,13 @@ def test_pascal_should_pascal_case_usual_strings():
     assert toCase("PASCALCase").pascal() == "PascalcAse"
 
 
+def test_pascal_should_pascal_case_usual_string_in_other_languages():
+    # test the UTF-8 char for russian, french and greek. Feel free to test other languages
+    assert toCase("не волнуйтесь беспокойтесь") == "НеВолнуйтесьБеспокойтесь"
+    assert toCase("épicurien ambiguë") == "ÉpicurienAmbiguië"
+    assert toCase("Μου αρέσει το κοτόπουλο") == "ΜουΑρέσειΤοΚοτόπουλο"
+
+
 def test_should_pascal_single_letter():
     assert toCase("p").pascal() == "P"
 

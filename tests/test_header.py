@@ -15,6 +15,13 @@ def test_header_should_header_case_usual_strings():
     assert toCase("HEADERCase").header() == "Headerc-Ase"
 
 
+def test_header_should_header_case_usual_string_in_other_languages():
+    # test the UTF-8 char for russian, french and greek. Feel free to test other languages
+    assert toCase("не волнуйтесь беспокойтесь") == "Не-Волнуйтесь-Беспокойтесь"
+    assert toCase("épicurien ambiguë") == "Épicurien-Ambiguië"
+    assert toCase("Μου αρέσει το κοτόπουλο") == "Μου-Αρέσει-Το-Κοτόπουλο"
+
+
 def test_should_pascal_single_letter():
     assert toCase("h").header() == "H"
 

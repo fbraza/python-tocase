@@ -14,6 +14,13 @@ def test_constant_should_constant_case_usual_strings():
     assert toCase("CONSTANTCase").constant() == "CONSTANTC_ASE"
 
 
+def test_constant_should_constant_case_usual_string_in_other_languages():
+    # test the UTF-8 char for russian, french and greek. Feel free to test other languages
+    assert toCase("не волнуйтесь беспокойтесь") == "НЕ_ВОЛНУЙТЕСЬ_БЕСПОКОЙТЕСЬ"
+    assert toCase("épicurien ambiguë") == "ÉPICURIEN_AMBIGUIË"
+    assert toCase("Μου αρέσει το κοτόπουλο") == "ΜΟΥ_ΑΡΈΣΕΙ_ΤΟ_ΚΟΤΌΠΟΥΛΟ"
+
+
 def test_constant_should_return_single_letter():
     assert toCase("c").constant() == "C"
 
