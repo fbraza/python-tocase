@@ -1,0 +1,5 @@
+*.
+!.gitignore
+!.pre-commit-config.yaml
+__pycache__/
+.pytest_cache/
