@@ -13,9 +13,9 @@ def test_camel_should_camel_case_usual_strings():
 
 def test_camel_should_camel_case_usual_string_in_other_languages():
     # first russian, then french and greek. Feel free to test other languages
-    assert toCase("не волнуйтесь беспокойтесь") == "неВолнуйтесьНеБеспокойтесь"
-    assert toCase("épicurien ambiguë") == "épicurienAmbiguë"
-    assert toCase("Μου αρέσει το κοτόπουλο") == "μουΑρέσειΤοΚοτόπουλο"
+    assert toCase("не волнуйтесь беспокойтесь").camel() == "неВолнуйтесьБеспокойтесь"
+    assert toCase("épicurien ambiguë").camel() == "épicurienAmbiguë"
+    assert toCase("Μου αρέσει το κοτόπουλο").camel() == "μουΑρέσειΤοΚοτόπουλο"
 
 
 def test_should_camel_single_letter():
