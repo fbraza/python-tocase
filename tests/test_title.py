@@ -15,6 +15,13 @@ def test_title_should_title_case_usual_strings():
     assert toCase("SNAKECase").title() == "Snakec Ase"
 
 
+def test_title_should_tile_case_usual_string_in_other_languages():
+    # test the UTF-8 char for russian, french and greek. Feel free to test other languages
+    assert toCase("не волнуйтесь беспокойтесь").title() == "Не Волнуйтесь Беспокойтесь"
+    assert toCase("épicurien ambiguë").title() == "Épicurien Ambiguë"
+    assert toCase("Μου αρέσει το κοτόπουλο").title() == "Μου Αρέσει Το Κοτόπουλο"
+
+
 def test_title_should_return_single_letter():
     assert toCase("t").title() == "T"
 
