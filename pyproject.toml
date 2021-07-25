@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "recase"
+name = "tocase"
 version = "0.5.0"
 description = ""
 authors = ["fbraza <fbraza@tutanota.com>"]
@@ -19,12 +19,16 @@ commitizen = "^2.16.0"
 pre-commit = "^2.11.1"
 jedi = "*"
 python-language-server = { version = "*", extras = ["all"]}
-
+black = "^21.7b0"
+pylint = "^2.9.5"
+tox = "^3.24.0"
+tox-poetry-installer = {extras = ["poetry"], version = "^0.8.1"}
 
 [tool.commitizen]
 name = "cz_conventional_commits"
 version = "0.0.1"
 tag_format = "$version"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
