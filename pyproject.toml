@@ -23,6 +23,7 @@ black = "^21.7b0"
 pylint = "^2.9.5"
 tox = "^3.24.0"
 tox-poetry-installer = {extras = ["poetry"], version = "^0.8.1"}
+tox-gh-actions = "^2.6.0"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
