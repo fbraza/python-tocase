@@ -1,33 +1,33 @@
-from tocase.tocase import toCase
+from tocase.tocase import ToCase
 
 
 def test_constant_should_constant_case_usual_strings():
-    assert toCase("constant case").constant() == "CONSTANT_CASE"
-    assert toCase("constantCase").constant() == "CONSTANT_CASE"
-    assert toCase("CONSTANTcase").constant() == "CONSTANT_CASE"
-    assert toCase("Constant$%Case").constant() == "CONSTANT_CASE"
-    assert toCase("Constant.Case").constant() == "CONSTANT_CASE"
-    assert toCase("CONSTANT_CASE").constant() == "CONSTANT_CASE"
-    assert toCase("__constant_case__").constant() == "CONSTANT_CASE"
-    assert toCase("constant?case").constant() == "CONSTANT_CASE"
-    assert toCase("constant_case").constant() == "CONSTANT_CASE"
-    assert toCase("CONSTANTCase").constant() == "CONSTANTC_ASE"
+    assert ToCase("constant case").constant() == "CONSTANT_CASE"
+    assert ToCase("constantCase").constant() == "CONSTANT_CASE"
+    assert ToCase("CONSTANTcase").constant() == "CONSTANT_CASE"
+    assert ToCase("Constant$%Case").constant() == "CONSTANT_CASE"
+    assert ToCase("Constant.Case").constant() == "CONSTANT_CASE"
+    assert ToCase("CONSTANT_CASE").constant() == "CONSTANT_CASE"
+    assert ToCase("__constant_case__").constant() == "CONSTANT_CASE"
+    assert ToCase("constant?case").constant() == "CONSTANT_CASE"
+    assert ToCase("constant_case").constant() == "CONSTANT_CASE"
+    assert ToCase("CONSTANTCase").constant() == "CONSTANTC_ASE"
 
 
 def test_constant_should_constant_case_usual_string_in_other_languages():
     # test the UTF-8 char for russian, french and greek. Feel free to test other languages
-    assert toCase("не волнуйтесь беспокойтесь").constant() == "НЕ_ВОЛНУЙТЕСЬ_БЕСПОКОЙТЕСЬ"
-    assert toCase("épicurien ambiguë").constant() == "ÉPICURIEN_AMBIGUË"
-    assert toCase("Μου αρέσει το κοτόπουλο").constant() == "ΜΟΥ_ΑΡΈΣΕΙ_ΤΟ_ΚΟΤΌΠΟΥΛΟ"
+    assert ToCase("не волнуйтесь беспокойтесь").constant() == "НЕ_ВОЛНУЙТЕСЬ_БЕСПОКОЙТЕСЬ"
+    assert ToCase("épicurien ambiguë").constant() == "ÉPICURIEN_AMBIGUË"
+    assert ToCase("Μου αρέσει το κοτόπουλο").constant() == "ΜΟΥ_ΑΡΈΣΕΙ_ΤΟ_ΚΟΤΌΠΟΥΛΟ"
 
 
 def test_constant_should_return_single_letter():
-    assert toCase("c").constant() == "C"
+    assert ToCase("c").constant() == "C"
 
 
 def test_constant_should_return_string_if_only_special_chars():
-    assert toCase("£$%^&*()_-+=:;.,'@#~?").constant() == "£$%^&*()_-+=:;.,'@#~?" # noqa: 501 
+    assert ToCase("£$%^&*()_-+=:;.,'@#~?").constant() == "£$%^&*()_-+=:;.,'@#~?" # noqa: 501 
 
 
 def test_constant_should_return_empty_string():
-    assert toCase("").constant() == ""
+    assert ToCase("").constant() == ""
