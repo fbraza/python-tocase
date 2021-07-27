@@ -1,4 +1,8 @@
-## Unreleased
+## 0.2.1 (2021-07-27)
+
+### Docs
+
+- Correct some typos in the documentation
 
 ## 0.2.0 (2021-07-27)
 
