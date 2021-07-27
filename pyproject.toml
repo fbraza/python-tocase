@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "tocase"
-version = "0.1.0"
+version = "0.2.0"
 description = "tocase provides an API to recase string into any case"
 authors = ["fbraza <fbraza@tutanota.com>"]
-licence = "MIT"
+license = "MIT"
 keywords = ["string", "pandas", "regex"]
 readme = "README.md"
 homepage = "https://github.com/fbraza/toCase"

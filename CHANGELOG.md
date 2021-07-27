@@ -1,5 +1,11 @@
 ## Unreleased
 
+## 0.2.0 (2021-07-27)
+
+### Feat
+
+- docstrings written, Github CI passed, README.md written
+
 ## 0.1.0 (2021-07-25)
 
 ### Fix

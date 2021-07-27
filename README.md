@@ -1,3 +1,13 @@
+[![PyPI Version][pypi-image]][pypi-url]
+[![Build Status][build-image]][build-url]
+
+<!-- Badges -->
+
+[pypi-image]: https://img.shields.io/pypi/v/summarize_dataframe
+[pypi-url]: https://pypi.org/project/summarize-dataframe/
+[build-image]: https://github.com/fbraza/summarize_dataframe/actions/workflows/ci.yml/badge.svg
+[build-url]: https://github.com/fbraza/summarize_dataframe/blob/master/.github/workflows/ci.yml
+
 # ![title](assets/banner_ToCase.png)
 
 ## Functionality
