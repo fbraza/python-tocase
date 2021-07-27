@@ -15,39 +15,24 @@ class ToCase:
 
     Attributes:
     -----------
-    __string: str
-        string to recase
-    __pattern: str
-        regex pattern to extract words and numbers
-    __separators: Dict[str, str]
-        dict for separators used during recasing
+    - __string: the string to recase
+    - __pattern: regex pattern to extract words and numbers
+    - __separators: dict for separators used during recasing
 
     Methods:
     --------
-    pattern()
-        getter method for the __pattern attribute
-    string()
-        getter method for the __string attribute
-    separators()
-        getter method for the __separators attribute
-    __convert()
-        private method that holds logic to convert string in specified case
-    camel()
-        method to recase string in camel case
-    constant()
-        method to recase string in constant case
-    dot()
-        method to recase string in dot case
-    header()
-        method to recase string in header case
-    kebab()
-        method to recase string in kebab case
-    pascal()
-        method to recase string in pascal case
-    snake()
-        method to recase string in snake case
-    title()
-        method to recase string in title case
+    - pattern(): getter method for the __pattern attribute
+    - string(): getter method for the __string attribute
+    - separators(): getter method for the __separators attribute
+    - __convert(): private method that holds logic to convert string in specified case
+    - camel(): method to recase string in camel case
+    - constant(): method to recase string in constant case
+    - dot(): method to recase string in dot case
+    - header(): method to recase string in header case
+    - kebab(): method to recase string in kebab case
+    - pascal(): method to recase string in pascal case
+    - snake(): method to recase string in snake case
+    - title(): method to recase string in title case
     """
 
     def __init__(
@@ -60,15 +45,12 @@ class ToCase:
         """
         Parameters:
         -----------
-        string: str
-            the string you want to recase
-        pattern: str
-            the regex pattern used to extract words and numbers
+        - string: the string you want to recase
+        - pattern: the regex pattern used to extract words and numbers
 
         Raises:
         -------
-        TypeError
-            If string is not of str type
+        TypeError if string is not of str type
         """
         if not isinstance(string, str):
             raise TypeError(
@@ -95,8 +77,7 @@ class ToCase:
 
         Returns:
         --------
-        str
-            the regex pattern used to extract words and numbers
+        str, the regex pattern used to extract words and numbers
         """
         return self.__pattern
 
@@ -106,8 +87,7 @@ class ToCase:
 
         Returns:
         --------
-        str
-            the string to recase
+        str, the string to recase
         """
         return self.__string
 
@@ -117,8 +97,7 @@ class ToCase:
 
         Returns:
         --------
-        Dict[str, str]
-            a dictionnary holding respective separators
+        Dict[str, str], a dictionnary holding respective separators
         """
         return self.__separators
 
@@ -127,13 +106,11 @@ class ToCase:
 
         Parameters:
         -----------
-        kind: str
-            Case format you want the string to be converted into
+        kind: Case format you want the string to be converted into
 
         Return:
         -------
-        str
-            Recased string
+        str, the recased string
         """
         sep: str = self.separators[kind]
         words: List[str] = regex.findall(self.pattern, self.string)
@@ -161,8 +138,7 @@ class ToCase:
 
         Return:
         -------
-        str
-            pascal cased string
+        str, the pascal cased string
         """
         return self.__convert("pascal")
 
@@ -171,8 +147,7 @@ class ToCase:
 
         Return:
         -------
-        str
-            camel cased string
+        str, the camel cased string
         """
         return self.__convert("camel")
 
@@ -181,8 +156,7 @@ class ToCase:
 
         Return:
         -------
-        str
-            snake cased string
+        str, the snake cased string
         """
         return self.__convert("snake")
 
@@ -191,8 +165,7 @@ class ToCase:
 
         Return:
         -------
-        str
-            kebab cased string
+        str, the kebab cased string
         """
         return self.__convert("kebab")
 
@@ -201,8 +174,7 @@ class ToCase:
 
         Return:
         -------
-        str
-            Constant cased string
+        str, the constant cased string
         """
         return self.__convert("constant")
 
@@ -211,8 +183,7 @@ class ToCase:
 
         Return:
         -------
-        str
-            Dot cased string
+        str, the dot cased string
         """
         return self.__convert("dot")
 
@@ -221,8 +192,7 @@ class ToCase:
 
         Return:
         -------
-        str
-            Title cased string
+        str, the title cased string
         """
         return self.__convert("title")
 
@@ -231,7 +201,6 @@ class ToCase:
 
         Return:
         -------
-        str
-            Header cased string
+        str, header cased string
         """
         return self.__convert("header")
