@@ -8,7 +8,7 @@
 [build-image]: https://github.com/fbraza/summarize_dataframe/actions/workflows/ci.yml/badge.svg
 [build-url]: https://github.com/fbraza/summarize_dataframe/blob/master/.github/workflows/ci.yml
 
-# ![title](assets/banner_ToCase.png)
+![](assets/banner_ToCase.png)
 
 ## Functionality
 
@@ -43,7 +43,7 @@ list(df_with_modified_column_names.columns) = ['sepalLength', 'sepalWidth', 'pet
 
 ### Constant
 
-It is a naming convention where all letters in compound words are capitalized. Words are joined with an underscore (`_`).
+It is a naming convention where all letters in compound words are capitalized. Words are joined with an underscore.
 
 ```python
 # Example with simple string
@@ -58,7 +58,7 @@ list(df_with_modified_column_names.columns) = ['SEPAL_LENGTH', 'SEPAL_WIDTH', 'P
 
 ### Dot
 
-It is a naming convention where all letters in compound words are lowercased. Words are joined with a dot (`.`)
+It is a naming convention where all letters in compound words are lowercased. Words are joined with a dot.
 
 ```python
 # Example with simple string
@@ -73,7 +73,7 @@ list(df_with_modified_column_names.columns) = ['sepal.length', 'sepal.width', 'p
 
 ### Header
 
-It is a naming convention where the first letter in compound words is capitalized. Words are joined by a dash (`-`).
+It is a naming convention where the first letter in compound words is capitalized. Words are joined by a dash.
 
 ```python
 # Example with simple string
@@ -88,7 +88,7 @@ list(df_with_modified_column_names.columns) = ['Sepal-Length', 'Sepal-Width', 'P
 
 ### Kebab
 
-It is a naming convention where all letters in compound words are lowercased. Words are joined by a dash (`-`).
+It is a naming convention where all letters in compound words are lowercased. Words are joined by a dash.
 
 ```python
 # Example with simple string
@@ -97,7 +97,7 @@ Tocase("header Case").kebab() # ==> Header-Case
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).header()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).kebab()
 list(df_with_modified_column_names.columns) = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'species']
 ```
 
@@ -118,7 +118,7 @@ list(df_with_modified_column_names.columns) = ['SepalLength', 'SepalWidth', 'Pet
 
 ### 'Sepal-Length', 'Sepal-Width', 'Petal-Length', 'Petal-Width', 'Species'Snake
 
-It is a naming convention where all letters in compound words are lowercased. Words are joined by an underscore (`_`).
+It is a naming convention where all letters in compound words are lowercased. Words are joined by an underscore.
 
 ```python
 # Example with simple string
