@@ -92,8 +92,8 @@ It is a naming convention where all letters in compound words are lowercased. Wo
 
 ```python
 # Example with simple string
-Tocase("Header-case").kebab() # ==> Header-Case
-Tocase("header Case").kebab() # ==> Header-Case
+Tocase("Kebab-case").kebab() # ==> kebab-case
+Tocase("kebab Case").kebab() # ==> kebab-case
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
@@ -116,14 +116,14 @@ df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).pascal()
 list(df_with_modified_column_names.columns) = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
 ```
 
-### 'Sepal-Length', 'Sepal-Width', 'Petal-Length', 'Petal-Width', 'Species'Snake
+### Snake
 
 It is a naming convention where all letters in compound words are lowercased. Words are joined by an underscore.
 
 ```python
 # Example with simple string
-Tocase("Pascal-case").snake() # ==> PascalCase
-Tocase("pascal Case").snake() # ==> PascalCase
+Tocase("Snake-case").snake() # ==> snake_case
+Tocase("snake Case").snake() # ==> snake_case
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
@@ -137,12 +137,12 @@ It is a naming convention where the first letter in compound words is capitalize
 
 ```python
 # Example with simple string
-Tocase("Pascal-case").snake() # ==> PascalCase
-Tocase("pascal Case").snake() # ==> PascalCase
+Tocase("Title-case").title() # ==> "Title Case"
+Tocase("title Case").title() # ==> "Title Case"
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).snake()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).title()
 list(df_with_modified_column_names.columns) = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Species']
 ```
 
@@ -160,7 +160,7 @@ If you don't have `poetry` you can use `pip` and the `requirements.txt` file:
 pip install -r requirements.txt
 ```
 
-To run test, stay at the root of the directory and run:
+To run tests, stay at the root of the directory and run:
 
 ```bash
 pytest -v

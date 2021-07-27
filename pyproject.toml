@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tocase"
-version = "0.2.1"
+version = "0.2.2"
 description = "tocase provides an API to recase string into any case"
 authors = ["fbraza <fbraza@tutanota.com>"]
 license = "MIT"
