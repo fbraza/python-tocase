@@ -24,6 +24,10 @@ pip install tocase
 
 Once installed import the `ToCase` class.
 
+```python
+from tocase.tocase import ToCase
+```
+
 ## Usage
 
 ### Camel
