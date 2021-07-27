@@ -41,7 +41,7 @@ Tocase("camel case").camel() # ==> camelCase
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).camel()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).camel())
 list(df_with_modified_column_names.columns) = ['sepalLength', 'sepalWidth', 'petalLength', 'petalWidth', 'species']
 ```
 
@@ -56,7 +56,7 @@ Tocase("constant Case").constant() # ==> CONSTANT_CASE
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).constant()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).constant())
 list(df_with_modified_column_names.columns) = ['SEPAL_LENGTH', 'SEPAL_WIDTH', 'PETAL_LENGTH', 'PETAL_WIDTH', 'SPECIES']
 ```
 
@@ -71,7 +71,7 @@ Tocase("dot Case").dot() # ==> dot.case
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).dot()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).dot())
 list(df_with_modified_column_names.columns) = ['sepal.length', 'sepal.width', 'petal.length', 'petal.width', 'species']
 ```
 
@@ -86,7 +86,7 @@ Tocase("header Case").header() # ==> Header-Case
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).header()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).header())
 list(df_with_modified_column_names.columns) = ['Sepal-Length', 'Sepal-Width', 'Petal-Length', 'Petal-Width', 'Species']
 ```
 
@@ -101,7 +101,7 @@ Tocase("kebab Case").kebab() # ==> kebab-case
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).kebab()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).kebab())
 list(df_with_modified_column_names.columns) = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'species']
 ```
 
@@ -116,7 +116,7 @@ Tocase("pascal Case").pascal() # ==> PascalCase
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).pascal()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).pascal())
 list(df_with_modified_column_names.columns) = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
 ```
 
@@ -131,7 +131,7 @@ Tocase("snake Case").snake() # ==> snake_case
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).snake()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).snake())
 list(df_with_modified_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 ```
 
@@ -146,7 +146,7 @@ Tocase("title Case").title() # ==> "Title Case"
 
 # Example with Pandas DataFrame and Iris DataFrame
 list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).title()
+df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).title())
 list(df_with_modified_column_names.columns) = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Species']
 ```
 
