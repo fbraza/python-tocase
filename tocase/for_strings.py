@@ -10,6 +10,14 @@ from typing import List, Dict
 import regex
 
 
+# CONSTANT used for joining string
+DOT = "."
+DASH = "-"
+UNDERSCORE = "_"
+EMPTY = ""
+SPACE = " "
+
+
 class ToCase:
     """A class to hold data necessary for recasing strings
 
@@ -55,20 +63,20 @@ class ToCase:
         if not isinstance(string, str):
             raise TypeError(
                 """
-                Wrong type used. The toCase constructor accepts strings only
-                """
+                Wrong type used: {}. The toCase constructor accepts strings only
+                """.format(type(string))
             )
         self.__string: str = string
         self.__pattern: str = pattern
         self.__separators: Dict[str, str] = {
-            "pascal": "",
-            "camel": "",
-            "snake": "_",
-            "title": " ",
-            "kebab": "-",
-            "dot": ".",
-            "header": "-",
-            "constant": "_",
+            "pascal": EMPTY,
+            "camel": EMPTY,
+            "snake": UNDERSCORE,
+            "title": SPACE,
+            "kebab": DASH,
+            "dot": DOT,
+            "header": DASH,
+            "constant": UNDERSCORE,
         }
 
     @property
