@@ -3,10 +3,10 @@
 
 <!-- Badges -->
 
-[pypi-image]: https://img.shields.io/pypi/v/summarize_dataframe
-[pypi-url]: https://pypi.org/project/summarize-dataframe/
-[build-image]: https://github.com/fbraza/summarize_dataframe/actions/workflows/ci.yml/badge.svg
-[build-url]: https://github.com/fbraza/summarize_dataframe/blob/master/.github/workflows/ci.yml
+[pypi-image]: https://img.shields.io/pypi/v/tocase
+[pypi-url]: https://pypi.org/project/tocase/
+[build-image]: https://github.com/fbraza/tocase/actions/workflows/ci.yml/badge.svg
+[build-url]: https://github.com/fbraza/tocase/blob/master/.github/workflows/ci.yml
 
 ![](assets/banner_ToCase.png)
 
