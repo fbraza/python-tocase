@@ -175,3 +175,8 @@ All contributions are more than welcome. So feel free to to make a PR.
 ## Author
 
 Faouzi Braza
+
+## TODO
+
+* Provide an API for Pandas DataFrame and Series
+* Provide an API for Spark DataFrame
