@@ -1,10 +1,13 @@
-## 0.2.1 (2021-07-27)
+# CHANGELOG
 
-### Docs
+## v1.0.0 (2021-09-03)
 
-- Correct some typos in the documentation
+### Feat
 
-## 0.2.0 (2021-07-27)
+- v1 version of the two modules with all docstrings and formatting ok locally
+- split the library in two APIs, one for strings and one for pandas DataFrame
+
+## v0.2.2 (2021-07-27)
 
 ### Feat
 
