@@ -32,7 +32,7 @@ class ToCase:
     - pattern(): getter method for the __pattern attribute
     - string(): getter method for the __string attribute
     - separators(): getter method for the __separators attribute
-    - __convert(): private method that holds logic to convert string in specified case
+    - __convert(): private method to convert string in specified case
     - camel(): method to recase string in camel case
     - constant(): method to recase string in constant case
     - dot(): method to recase string in dot case
@@ -63,8 +63,13 @@ class ToCase:
         if not isinstance(string, str):
             raise TypeError(
                 """
-                Wrong type used: {}. The toCase constructor accepts strings only
-                """.format(type(string))
+                --------------------------------------------
+                Wrong type used: {}.
+                The toCase constructor accepts strings only
+                --------------------------------------------
+                """.format(
+                    type(string)
+                )
             )
         self.__string: str = string
         self.__pattern: str = pattern

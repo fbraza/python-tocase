@@ -1,6 +1,14 @@
-import pandas as pd
-from tocase.for_strings import ToCase
+"""
+This module provides two pandas DataFrame accessors that can
+leverage the ToCase methods to recase column names or column
+values.
+"""
+
+
 from typing import Callable, List
+import pandas as pd
+
+from tocase.for_strings import ToCase
 
 
 @pd.api.extensions.register_dataframe_accessor("col")
@@ -30,6 +38,10 @@ class RecaseColumnNamesAccessor:
     - header(): method to recase DataFrame columns in header case
     - constant(): method to recase DataFrame columns in constant case
     """
+
+    # pylint: disable=too-many-instance-attributes
+    # Nine is reasonable in this case.
+
     def __init__(self, pandas_obj):
         self.__obj = pandas_obj
         self.__todot = lambda x: ToCase(x).dot()
@@ -93,7 +105,7 @@ class RecaseColumnNamesAccessor:
         """
         return self.__obj.rename(columns=self.__tosnake, inplace=inplace)
 
-    def title(self) -> pd.DataFrame:
+    def title(self, inplace: bool = False) -> pd.DataFrame:
         """Method to title case DataFrame columns
 
         Parameters:
@@ -104,7 +116,7 @@ class RecaseColumnNamesAccessor:
         -------
         pd.DataFrame, a new DataFrame with recased columns name
         """
-        return self.__obj.rename(columns=self.__totitle, inplace=False)
+        return self.__obj.rename(columns=self.__totitle, inplace=inplace)
 
     def pascal(self, inplace: bool = False) -> pd.DataFrame:
         """Method to pascal case DataFrame columns
@@ -117,9 +129,9 @@ class RecaseColumnNamesAccessor:
         -------
         pd.DataFrame, a new DataFrame with recased columns name
         """
-        return self.__obj.rename(columns=self.__topascal, inplace=False)
+        return self.__obj.rename(columns=self.__topascal, inplace=inplace)
 
-    def header(self) -> pd.DataFrame:
+    def header(self, inplace: bool = False) -> pd.DataFrame:
         """Method to header case DataFrame columns
 
         Parameters:
@@ -130,9 +142,9 @@ class RecaseColumnNamesAccessor:
         -------
         pd.DataFrame, a new DataFrame with recased columns name
         """
-        return self.__obj.rename(columns=self.__toheader, inplace=False)
+        return self.__obj.rename(columns=self.__toheader, inplace=inplace)
 
-    def constant(self) -> pd.DataFrame:
+    def constant(self, inplace: bool = False) -> pd.DataFrame:
         """Method to constant case DataFrame columns
 
         Parameters:
@@ -143,7 +155,7 @@ class RecaseColumnNamesAccessor:
         -------
         pd.DataFrame, a new DataFrame with recased columns name
         """
-        return self.__obj.rename(columns=self.__toconstant, inplace=False)
+        return self.__obj.rename(columns=self.__toconstant, inplace=inplace)
 
 
 @pd.api.extensions.register_dataframe_accessor("val")
@@ -174,6 +186,10 @@ class RecaseColumnValuesAccessor:
     - header(): method to recase DataFrame column values in header case
     - constant(): method to recase DataFrame column values in constant case
     """
+
+    # pylint: disable=too-many-instance-attributes
+    # Nine is reasonable in this case.
+
     def __init__(self, pandas_obj):
         self.__obj = pandas_obj
         self.__todot = lambda x: ToCase(x).dot()
@@ -187,14 +203,16 @@ class RecaseColumnValuesAccessor:
 
     @staticmethod
     def __recase_values(
-        df: pd.DataFrame,
+        data: pd.DataFrame,
         columns: List[str],
         func: Callable,
     ) -> pd.DataFrame:
-        df_copy = df.copy()
+        df_copy = data.copy()
         for column in columns:
-            if column not in df.columns:
-                raise AttributeError("Column name '{}' is not present in DataFrame".format(column)) # noqa: 501
+            if column not in data.columns:
+                raise AttributeError(
+                    "Column '{}' not present in DataFrame".format(column)
+                )
         for column in columns:
             df_copy[column] = df_copy[column].apply(func)
         return df_copy
