@@ -25,8 +25,8 @@ pip install tocase
 Once installed, import the `for_strings` if you want to use the basic API to recase strings. Import the `for_pandas` modules to use the pandas API to recase column names and column values.
 
 ```python
-import tocase.tocase.for_strings.ToCase as ToCase
-import tocase.tocase.for_pandas
+from tocase.for_strings import ToCase # if you want to use the string API only
+import tocase.for_pandas # if you want to recase strings in Pandas DataFrames
 ```
 
 ## Usage
