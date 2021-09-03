@@ -22,10 +22,11 @@ To install the package run the following command:
 pip install tocase
 ```
 
-Once installed import the `ToCase` class.
+Once installed, import the `for_strings` if you want to use the basic API to recase strings. Import the `for_pandas` modules to use the pandas API to recase column names and column values.
 
 ```python
-from tocase.tocase import ToCase
+import tocase.tocase.for_strings.ToCase as ToCase
+import tocase.tocase.for_pandas
 ```
 
 ## Usage
@@ -38,11 +39,6 @@ It is a naming convention where the first letter in compound words is capitalize
 # Example with simple string
 Tocase("camel-case").camel() # ==> camelCase
 Tocase("camel case").camel() # ==> camelCase
-
-# Example with Pandas DataFrame and Iris DataFrame
-list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).camel())
-list(df_with_modified_column_names.columns) = ['sepalLength', 'sepalWidth', 'petalLength', 'petalWidth', 'species']
 ```
 
 ### Constant
@@ -53,11 +49,6 @@ It is a naming convention where all letters in compound words are capitalized. W
 # Example with simple string
 Tocase("Constant-case").constant() # ==> CONSTANT_CASE
 Tocase("constant Case").constant() # ==> CONSTANT_CASE
-
-# Example with Pandas DataFrame and Iris DataFrame
-list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).constant())
-list(df_with_modified_column_names.columns) = ['SEPAL_LENGTH', 'SEPAL_WIDTH', 'PETAL_LENGTH', 'PETAL_WIDTH', 'SPECIES']
 ```
 
 ### Dot
@@ -68,11 +59,6 @@ It is a naming convention where all letters in compound words are lowercased. Wo
 # Example with simple string
 Tocase("Dot-case").dot() # ==> dot.case
 Tocase("dot Case").dot() # ==> dot.case
-
-# Example with Pandas DataFrame and Iris DataFrame
-list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).dot())
-list(df_with_modified_column_names.columns) = ['sepal.length', 'sepal.width', 'petal.length', 'petal.width', 'species']
 ```
 
 ### Header
@@ -83,11 +69,6 @@ It is a naming convention where the first letter in compound words is capitalize
 # Example with simple string
 Tocase("Header-case").header() # ==> Header-Case
 Tocase("header Case").header() # ==> Header-Case
-
-# Example with Pandas DataFrame and Iris DataFrame
-list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).header())
-list(df_with_modified_column_names.columns) = ['Sepal-Length', 'Sepal-Width', 'Petal-Length', 'Petal-Width', 'Species']
 ```
 
 ### Kebab
@@ -98,11 +79,6 @@ It is a naming convention where all letters in compound words are lowercased. Wo
 # Example with simple string
 Tocase("Kebab-case").kebab() # ==> kebab-case
 Tocase("kebab Case").kebab() # ==> kebab-case
-
-# Example with Pandas DataFrame and Iris DataFrame
-list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).kebab())
-list(df_with_modified_column_names.columns) = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'species']
 ```
 
 ### Pascal
@@ -113,11 +89,6 @@ It is a naming convention where the first letter in compound words is capitalize
 # Example with simple string
 Tocase("Pascal-case").pascal() # ==> PascalCase
 Tocase("pascal Case").pascal() # ==> PascalCase
-
-# Example with Pandas DataFrame and Iris DataFrame
-list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).pascal())
-list(df_with_modified_column_names.columns) = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
 ```
 
 ### Snake
@@ -128,11 +99,6 @@ It is a naming convention where all letters in compound words are lowercased. Wo
 # Example with simple string
 Tocase("Snake-case").snake() # ==> snake_case
 Tocase("snake Case").snake() # ==> snake_case
-
-# Example with Pandas DataFrame and Iris DataFrame
-list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).snake())
-list(df_with_modified_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 ```
 
 ### Title
@@ -143,11 +109,58 @@ It is a naming convention where the first letter in compound words is capitalize
 # Example with simple string
 Tocase("Title-case").title() # ==> "Title Case"
 Tocase("title Case").title() # ==> "Title Case"
+```
 
-# Example with Pandas DataFrame and Iris DataFrame
-list(df_with_original_column_names.columns) = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-df_with_modified_column_names = df.rename(columns=lambda x: ToCase(x).title())
-list(df_with_modified_column_names.columns) = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Species']
+### With pandas DataFrames
+
+You can work with pandas DataFrame to recase columns names or column values. See the following examples with fake data.
+
+```python
+columns = ["first name", "last name", "age", "family doctor"]
+values = [
+        ["Jules", "Otti", 35, "Dr James Porter"],
+        ["Marie", "Curie", 22, "Dr Vicky Laporte"],
+        ["Marc", "El Bichon", 35, "Dr Hyde Frank"]
+        ]
+data =  pd.DataFrame(data=values, columns=columns)
+```
+
+To recase columns names, use the `col` DataFrame accessor and the appropriate recasing function described above.
+
+```python
+print(data)
+
+"""
+  first name last name  age   family doctor
+0      Jules      Otti   35   DrJamesPorter
+1      Marie     Curie   22  DrVickyLaporte
+2       Marc  ElBichon   35     DrHydeFrank
+
+"""
+
+print(data.col.constant())
+
+"""
+  FIRST_NAME LAST_NAME  AGE   FAMILY_DOCTOR
+0      Jules      Otti   35   DrJamesPorter
+1      Marie     Curie   22  DrVickyLaporte
+2       Marc  ElBichon   35     DrHydeFrank
+"""
+```
+
+To recase columns values, use the `val` DataFrame accessor, the appropriate recasing function described above with a list of the columns to be processed.
+
+```python
+columns_to_process = ["first name", "last name", "family doctor"]
+print(data.val.constant(columns_to_process))
+
+"""
+  first name  last name  age     family doctor
+0      JULES       OTTI   35   DR_JAMES_PORTER
+1      MARIE      CURIE   22  DR_VICKY_LAPORTE
+2       MARC  EL_BICHON   35     DR_HYDE_FRANK
+
+"""
 ```
 
 ## For developers
@@ -175,8 +188,3 @@ All contributions are more than welcome. So feel free to to make a PR.
 ## Author
 
 Faouzi Braza
-
-## TODO
-
-* Provide an API for Pandas DataFrame and Series
-* Provide an API for Spark DataFrame

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tocase"
-version = "0.2.3"
+version = "1.0.0"
 description = "tocase provides an API to recase string into any case"
 authors = ["fbraza <fbraza@tutanota.com>"]
 license = "MIT"
@@ -33,7 +33,7 @@ tox-gh-actions = "^2.6.0"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.2.0"
+version = "0.3.0"
 tag_format = "$version"
 
 [build-system]
