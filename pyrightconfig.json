@@ -1,0 +1,5 @@
+{
+	// Install LSP-json to get validation and autocompletion in this file.
+	"venvPath": "/home/fbraza/.cache/pypoetry/virtualenvs",
+	"venv": "tocase-XGl_e23H-py3.7",
+}
