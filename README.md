@@ -1,3 +1,6 @@
+# ToCase
+![](assets/tocase.png)
+
 [![PyPI Version][pypi-image]][pypi-url]
 [![Build Status][build-image]][build-url]
 
@@ -7,8 +10,6 @@
 [pypi-url]: https://pypi.org/project/tocase/
 [build-image]: https://github.com/fbraza/tocase/actions/workflows/ci.yml/badge.svg
 [build-url]: https://github.com/fbraza/tocase/blob/master/.github/workflows/ci.yml
-
-![](assets/banner_ToCase.png)
 
 ## Functionality
 
